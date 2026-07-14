@@ -813,7 +813,7 @@ function renderConfigTabs(configs) {
 
     configs.forEach((cfgName, idx) => {
         const btn = document.createElement("button");
-        btn.className = `config-tab \${idx === 0 ? 'active' : ''}`;
+        btn.className = `config-tab ${idx === 0 ? 'active' : ''}`;
         btn.dataset.config = cfgName;
         btn.innerText = cfgName;
         btn.addEventListener("click", () => {
@@ -866,7 +866,7 @@ function addConsoleLog(text, type = "info") {
     const time = new Date().toLocaleTimeString();
     const entry = document.createElement("div");
     entry.className = "log-entry";
-    entry.innerHTML = `<span class="log-time">[\${time}]</span><span class="log-text \${type}">\${text}</span>`;
+    entry.innerHTML = `<span class="log-time">[${time}]</span><span class="log-text ${type}">${text}</span>`;
     consoleLogs.appendChild(entry);
     consoleLogs.scrollTop = consoleLogs.scrollHeight;
 }
@@ -1028,7 +1028,7 @@ copyBtn.addEventListener("click", () => {
     if (!textToCopy) return;
 
     navigator.clipboard.writeText(textToCopy).then(() => {
-        showToast(`Copied \${activeConfigName} to clipboard!`, "success");
+        showToast(`Copied ${activeConfigName} to clipboard!`, "success");
     }).catch(err => {
         showToast("Failed to copy code.", "error");
     });
