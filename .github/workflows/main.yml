@@ -26,13 +26,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
+      
       - name: Run Unit Tests
         working-directory: ./flask-app
-        env:
-          PYTHONPATH: ./flask-app
         run: |
+          export PYTHONPATH=$PWD
           pytest
+      
 
       - name: Copy Application Files to GCP VM
         uses: appleboy/scp-action@v0.1.7
