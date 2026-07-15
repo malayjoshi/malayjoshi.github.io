@@ -33,6 +33,13 @@ jobs:
           export PYTHONPATH=$PWD
           pytest
       
+      - name: Debug
+        run: |
+          echo "Host: ${{ secrets.VM_HOST }}"
+          echo "User: ${{ secrets.VM_USER }}"
+          echo "Key Length: ${#VM_SSH_KEY}"
+        env:
+          VM_SSH_KEY: ${{ secrets.VM_SSH_KEY }}
 
       - name: Copy Application Files to GCP VM
         uses: appleboy/scp-action@v0.1.7
