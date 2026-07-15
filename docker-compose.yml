@@ -1,8 +1,0 @@
-services:
-  web:
-    build: .
-    container_name: sample-app
-    restart: unless-stopped
-
-    ports:
-      - "127.0.0.1:8030:8030"
